@@ -1,0 +1,162 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+            google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var prOpenedData = new google.visualization.DataTable();
+      prOpenedData.addColumn('string', 'Month');
+      prOpenedData.addColumn('number', '2017');
+      prOpenedData.addColumn('number', '2018');
+      prOpenedData.addColumn('number', '2019');
+      prOpenedData.addColumn('number', '2020');
+      prOpenedData.addColumn('number', '2021');
+
+      prOpenedData.addRows([['Jan', null, 298, 213, 331, 148],
+        ['Feb', 236, 213, 276, 290, null],
+        ['Mar', 321, 179, 366, 372, null],
+        ['Apr', 255, 164, 281, 411, null],
+        ['May', 295, 337, 502, 506, null],
+        ['Jun', 298, 338, 439, 411, null],
+        ['Jul', 243, 293, 322, 276, null],
+        ['Aug', 183, 249, 334, 205, null],
+        ['Sep', 348, 342, 392, 261, null],
+        ['Oct', 236, 342, 291, 341, null],
+        ['Nov', 301, 298, 251, 347, null],
+        ['Dec', 316, 300, 209, 277, null]]
+
+);
+
+      var prOpenedDataOptions = {
+        chart: {
+          title: 'Pull Requests opened in CPython',
+          subtitle: 'number of PRs per month. against the `master` branch.'
+        },
+        width: 900,
+        height: 500
+      };
+
+      var prOpenedChart = new google.charts.Line(document.getElementById('pr_opened_chart'));
+
+      prOpenedChart.draw(prOpenedData, google.charts.Line.convertOptions(prOpenedDataOptions));
+
+      var prMergedData = new google.visualization.DataTable();
+      prMergedData.addColumn('string', 'Month');
+      prMergedData.addColumn('number', '2017');
+      prMergedData.addColumn('number', '2018');
+      prMergedData.addColumn('number', '2019');
+      prMergedData.addColumn('number', '2020');
+      prMergedData.addColumn('number', '2021');
+
+
+      prMergedData.addRows([
+        ['Jan', null, 231, 133, 227, 92],
+        ['Feb', 112, 149, 169, 186, null],
+        ['Mar', 227, 126, 281, 285, null],
+        ['Apr', 140, 110, 229, 284, null],
+        ['May', 176, 199, 436, 370, null],
+        ['Jun', 231, 240, 339, 291, null],
+        ['Jul', 147, 190, 192, 142, null],
+        ['Aug', 133, 150, 215, 119, null],
+        ['Sep', 270, 264, 434, 172, null],
+        ['Oct', 164, 252, 194, 249, null],
+        ['Nov', 235, 228, 186, 258, null],
+        ['Dec', 210, 217, 138, 237, null]]
+);
+
+      var prMergedDataOptions = {
+        chart: {
+          title: 'Pull Requests merged in CPython',
+          subtitle: 'against the `master` branch.'
+        },
+        width: 900,
+        height: 500
+      };
+
+      var prMergedChart = new google.charts.Line(document.getElementById('pr_merged_chart'));
+
+      prMergedChart.draw(prMergedData, google.charts.Line.convertOptions(prMergedDataOptions));
+
+    
+
+      var uniqueContributorsData = new google.visualization.DataTable();
+      uniqueContributorsData.addColumn('string', 'Month');
+      uniqueContributorsData.addColumn('number', '2017');
+      uniqueContributorsData.addColumn('number', '2018');
+      uniqueContributorsData.addColumn('number', '2019');
+      uniqueContributorsData.addColumn('number', '2020');
+      uniqueContributorsData.addColumn('number', '2021');
+
+
+      uniqueContributorsData.addRows([
+          ['Jan', null, 105, 101, 127, 76],
+        ['Feb', 99, 89, 112, 114, null], 
+        ['Mar', 98, 97, 111, 111, null], 
+        ['Apr', 96, 74, 97, 126, null], 
+        ['May', 119, 119, 152, 142, null], 
+        ['Jun', 115, 108, 134, 111, null], 
+        ['Jul', 98, 105, 135, 124, null], 
+        ['Aug', 76, 98, 129, 92, null], 
+        ['Sep', 105, 125, 123, 113, null], 
+        ['Oct', 90, 132, 117, 152, null], 
+        ['Nov', 104, 95, 117, 122, null], 
+        ['Dec', 103, 103, 107, 96, null]]
+);
+
+      var uniqueContributorsOptions = {
+        chart: {
+          title: 'Number of unique contributors',
+          subtitle: 'number of users per month. against the `master` branch.'
+        },
+        width: 900,
+        height: 500
+      };
+
+      var uniqueContributorsChart = new google.charts.Line(document.getElementById('unique_contributors_chart'));
+
+      uniqueContributorsChart.draw(uniqueContributorsData, google.charts.Line.convertOptions(uniqueContributorsOptions));
+    }
+
+
+    </script>
+  </head>
+  <body>
+  <h1>Contribution data for the CPython repository</h1>
+  <div>
+        Data collected by <a href="https://github.com/Mariatta">Mariatta</a>, using Python 3.9 and <a href="https://gidgethub.readthedocs.org">gidgethub</a> library to fetch data using GitHub API.
+        Charts are generated using <a href="https://developers.google.com/chart">Google Charts</a>.
+      </div>
+  <div><iframe src="https://github.com/sponsors/Mariatta/button" title="Sponsor Mariatta" height="35" width="116" style="border: 0;"></iframe></div>
+    <div><a href="https://github.com/Mariatta/cpython_repo_data">Source code</a></div>
+  <h2>Other interesting dates</h2>
+    <ul>
+      <li>CPython moved to GitHub in Feb 2017.</li>
+      <li>PyCon US: in May of 2017, 2018, 2019, 2020</li>
+      <li>Python core dev sprint: In Sept 2017, 2018, 2019, and virtually in Oct 2020</li>
+      <li>October of each year is also Hacktoberfest.</li>
+      <li>Guido retired as BDFL: July 2018 </li>
+      <li>Feb 2019: The first steering council members were elected</li>
+    </ul>
+    <h2>Notes</h2>
+
+    <ul>
+      <li>January 2021 data is not complete.</li>
+      <li>Seems like there's usually a peak during times of PyCon US and Python core sprints.</li>
+      <li>Seems like folks normally take time off during summer months :)</li>
+      <li>... and end of the year holidays.</li>
+      <li>PEP 572 was created on Feb 2018.</li>
+      <li>Somehow.. PR contributions were at all time low in Feb - April 2018...</li>
+    </ul>
+
+  </body>
+    <div id="pr_opened_chart" style="width: 900px; height: 500px"></div>
+    <div id="pr_merged_chart" style="width: 900px; height: 500px"></div>
+    <div id="unique_contributors_chart" style="width: 900px; height: 500px"></div>
+
+
+  <footer>License: CC-BY-SA 4.0</footer>
+</html>
+
